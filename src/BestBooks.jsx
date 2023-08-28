@@ -35,17 +35,21 @@ class BestBooks extends React.Component {
 return (
       <>
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
-
-        {this.state.books.length > 0 ? (
-          <div className="carousel slide" data-ride="carousel">
-            <div className="carousel-inner">
-              {this.state.books.map((book, index) => (
-                <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                  <h5>{book.title}</h5>
-                  <p>{book.description}</p>
-                  {/* Additional book details here */}
-                </div>
-              ))}
+{this.state.books.map((book, index) => (
+  <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+    <h5>{book.title}</h5>
+    <p>{book.description}</p>
+    {/* Additional book details here */}
+  </div>
+))}
+<a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span className="sr-only">Previous</span>
+</a>
+<a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+  <span className="carousel-control-next-icon" aria-hidden="true"></span>
+  <span className="sr-only">Next</span>
+</a>
             </div>
           </div>
         ) : (
