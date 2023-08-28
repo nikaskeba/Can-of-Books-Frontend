@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -7,22 +9,50 @@ class BestBooks extends React.Component {
       books: []
     }
   }
+ componentDidMount() {
+    this.getBooks();
+  }
 
-  /* TODO: Make a GET request to your API to fetch all the books from the database  */
-
+  getBooks = async () => {
+    try {
+      const response = await fetch('/api/books'); //add backend url
+      if (response.ok) {
+        const data = await response.json();
+        this.setState({ books: data, isLoading: false });
+      } else {
+        console.error('Failed to fetch books');
+        this.setState({ isLoading: false });
+      }
+    } catch (error) {
+      console.error('Error fetching books:', error);
+      this.setState({ isLoading: false });
+    }
+  }
   render() {
 
-    /* TODO: render all the books in a Carousel */
 
-    return (
+
+return (
       <>
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
 
-        {this.state.books.length ? (
-          <p>Book Carousel coming soon</p>
+        {this.state.books.length > 0 ? (
+          <div className="carousel slide" data-ride="carousel">
+            <div className="carousel-inner">
+              {this.state.books.map((book, index) => (
+                <div className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+                  <h5>{book.title}</h5>
+                  <p>{book.description}</p>
+                  {/* Additional book details here */}
+                </div>
+              ))}
+            </div>
+          </div>
         ) : (
           <h3>No Books Found :(</h3>
         )}
+                  <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
       </>
     )
   }
