@@ -41,7 +41,7 @@ class BestBooks extends React.Component {
           <div className="carousel slide" data-ride="carousel">
             <div className="carousel-inner">
               {this.state.books.map((book, index) => (
-                <div key={book.id} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+  <div key={book._id} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
                   <h5>{book.title}</h5>
                   <p>{book.description}</p>
                   {/* Additional book details here */}
