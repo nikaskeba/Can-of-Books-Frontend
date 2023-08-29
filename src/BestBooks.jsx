@@ -16,7 +16,11 @@ class BestBooks extends React.Component {
       books: []
     }
   }
-
+  addNewBook = (book) => {
+    this.setState(prevState => ({
+      books: [...prevState.books, book]
+    }));
+  }
  componentDidMount() {
     this.getBooks();
   }
@@ -29,7 +33,7 @@ class BestBooks extends React.Component {
         // console.log('extracting: ', data[0].title); //this
         this.setState({ books: data, isLoading: false });
       } else {
-        console.error('Failed to fetch books');
+        console.error('Failed to fetch books', await response.text());
         this.setState({ isLoading: false });
       }
     } catch (error) {
@@ -38,7 +42,18 @@ class BestBooks extends React.Component {
     }
   }
 
-
+  handleDelete = async (bookId) => {
+    try {
+        await fetch(`https://can-of-books-backend-0qwx.onrender.com/books/${bookId}`, {
+            method: 'DELETE'
+        });
+        this.setState(prevState => ({
+            books: prevState.books.filter(book => book._id !== bookId)
+        }));
+    } catch (error) {
+        console.error('Failed to delete the book:', error);
+    }
+}
 
   render() {
    return (
@@ -57,6 +72,8 @@ class BestBooks extends React.Component {
                     <li class="list-group-item">{book.description}</li>
                     <li class="list-group-item">{book.status}</li>
                   </ul>
+                                  <button onClick={() => this.handleDelete(book._id)}>Delete</button>
+
                 </li>
               </ol>
             </div>

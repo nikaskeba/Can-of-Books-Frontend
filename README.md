@@ -4,7 +4,7 @@ In collaboration:
 - Paul Brown
 - Nika Skeba
 
-
+Live App Version - <a href="https://super-gaufre-8f5aca.netlify.app/about">Netlify App</a>
 
 
 # Start your own "Can of Books" App
