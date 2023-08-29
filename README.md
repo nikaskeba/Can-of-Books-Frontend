@@ -1,7 +1,7 @@
 # Can of Books Backend
 
 In collaboration:
-- Paul Brown
+- Paul Brown - Backend - <a href="https://github.com/0xQuasark/can-of-books-backend">Backend</a>
 - Nika Skeba
 
 Live App Version - <a href="https://super-gaufre-8f5aca.netlify.app/about">Netlify App</a>
