@@ -47,7 +47,8 @@ constructor(props) {
         event.preventDefault();
         const bookData = {
             title: event.target.title.value,
-            description: event.target.description.value
+            description: event.target.description.value,
+            status: 'unread'
         };
 
         try {
