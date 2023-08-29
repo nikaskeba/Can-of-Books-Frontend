@@ -6,8 +6,8 @@ class Profile extends Component {
     /* TODO: render information about the developers */
     return (        <div>
         <h2>Developers:</h2>
-        <div className="nameBox">Nika Skeba</div>
-        <div className="nameBox">Paul Brown</div>
+        <div className="nameBox"><a href="https://github.com/nikaskeba/Can-of-Books-Frontend">Nika Skeba</a></div>
+        <div className="nameBox"><a href="https://github.com/0xQuasark/can-of-books-backend">Paul Brown</a></div>
       </div>
     );
   }
