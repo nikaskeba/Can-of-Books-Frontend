@@ -1,7 +1,7 @@
 # Can of Books Backend
 
 In collaboration:
-- Paul Brown
+- Paul Brown - Backend - <a href="https://github.com/0xQuasark/can-of-books-backend">Backend</a>
 - Nika Skeba
 
 
