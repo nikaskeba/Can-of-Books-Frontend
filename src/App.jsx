@@ -34,7 +34,7 @@ handleSubmit = async (event) => {
 
     try {
       const response = await fetch('https://can-of-books-backend-0qwx.onrender.com/books/', {
-        method: 'ADD',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           'Accept': 'application/json'
