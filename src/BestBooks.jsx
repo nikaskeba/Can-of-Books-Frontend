@@ -5,6 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './carousel.css';
 
+
+
+
+
 class BestBooks extends React.Component {
   constructor(props) {
     super(props);
@@ -39,8 +43,7 @@ class BestBooks extends React.Component {
   render() {
    return (
       <>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+    
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
 
     

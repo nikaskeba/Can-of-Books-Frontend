@@ -11,29 +11,17 @@ import {
 } from "react-router-dom";
 
 class App extends React.Component {
-
-  
   render() {
-    
     return (
-      <>
-        <Router>
-          <Header />
-          <Routes>
-            <Route 
-              exact path="/"
-              element={<BestBooks />}
-            >
-                <Route path="/about" element={<About />} />
-
-            </Route>
-         
-
-          </Routes>
-          <Footer />
-        </Router>
-      </>
-    )
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<BestBooks />} />
+          <Route path="/About" element={<About />} />
+        </Routes>
+        <Footer />
+      </Router>
+    );
   }
 }
 
