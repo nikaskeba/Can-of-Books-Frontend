@@ -14,6 +14,14 @@
   height: 2rem;
 
 }
+nav.navbar {    padding-left: 10px;
+    padding-right: 10px;}
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    margin-right: 20px;
+    margin-left: 5px;
+    padding-bottom: 10px;}
 .carousel-control-next, .carousel-control-prev {
 width: auto;}
 a {
@@ -36,5 +44,12 @@ a {
     border-width: 2px;
     border-style: solid;
     border-color: black;
+        margin-left: 10%;
 }
 .carousel-control-next-icon:after {display:none;}
+body    { margin-right: 10%;
+    margin-left: 10%;
+    border-style: solid;
+    border-radius: 5px;}
+
+    .btn-primary{    margin-left: 42px;}

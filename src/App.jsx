@@ -5,6 +5,8 @@ import BestBooks from './BestBooks';
 import About from './About'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'; // Import Axios
+import Button from 'react-bootstrap/Button';
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -66,7 +68,7 @@ render() {
     return (
         <Router>
             <Header />
-            <button type="button" onClick={this.toggleForm}>Add Book</button>
+            <Button variant="primary" type="button" onClick={this.toggleForm}>Add Book</Button>
 
             
             <BookFormModal 
