@@ -22,7 +22,7 @@ class BookFormModal extends React.Component {
                     <h3>New Book</h3>
                     <input type="text" name="title" placeholder="Book Title" required />
                     <input type="text" name="description" placeholder="Book Description" required />
-                    {/* ... other form fields ... */}
+                    <input type="text" name="status" placeholder="Status" required />
                     <button type="submit">Submit</button>
                 </form>
                 <button onClick={this.props.toggleForm}>Close</button>
@@ -48,7 +48,7 @@ constructor(props) {
         const bookData = {
             title: event.target.title.value,
             description: event.target.description.value,
-            status: 'unread'
+            status: event.target.status.value,
         };
 
         try {
