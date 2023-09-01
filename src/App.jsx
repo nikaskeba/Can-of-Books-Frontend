@@ -6,14 +6,34 @@ import About from './About';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'; // Import Axios
 import Button from 'react-bootstrap/Button';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
+const LearningShelf = () => {
+    const { isAuthenticated } = useAuth0();
+
+      if (!isAuthenticated) return (
+        <div className="welcome-message">
+            <h2>Welcome</h2>
+            <p>Please log in.</p>
+        </div>
+    );
+
+    return (
+            <Routes>
+                <Route path="/" element={<BestBooks ref={this.bestBooksRef} />} />
+                <Route path="/About" element={<About />} />
+            </Routes>
+    );
+};
 class BookFormModal extends React.Component {
     render() {
+            const { isAuthenticated } = this.props;
+
         if (!this.props.show) {
             return null;
         }
@@ -65,22 +85,15 @@ constructor(props) {
 
 
 render() {
+        const { isAuthenticated } = this.props;
+
     return (
         <Router>
             <Header />
-            <Button variant="primary" type="button" onClick={this.toggleForm}>Add Book</Button>
+     <LearningShelf />
+   
 
-            
-            <BookFormModal 
-                show={this.state.showForm} 
-                toggleForm={this.toggleForm} 
-                handleSubmit={this.handleSubmit}
-            />
-
-            <Routes>
-                <Route path="/" element={<BestBooks ref={this.bestBooksRef} />} />
-                <Route path="/About" element={<About />} />
-            </Routes>
+   
             <Footer />
         </Router>
     );
@@ -91,5 +104,9 @@ render() {
 
 
 }
+const AppWrapper = () => {
+    const { isAuthenticated } = useAuth0();
+    return <App isAuthenticated={isAuthenticated} />;
+}
 
-export default App;
+export default AppWrapper;
