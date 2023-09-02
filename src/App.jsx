@@ -27,7 +27,7 @@ const LearningShelf = ({ bestBooksRef }) => {
 
     return (
             <Routes>
-                <Route path="/" element={<BestBooks ref={this.bestBooksRef} />} />
+                <Route path="/BookShelf" element={<BestBooks ref={this.bestBooksRef} />} />
                 <Route path="/About" element={<About />} />
             </Routes>
     );
