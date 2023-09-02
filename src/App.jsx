@@ -15,7 +15,7 @@ import {
 } from "react-router-dom";
 const authDomain = import.meta.env.VITE_AUTH_DOMAIN;
 const authClientId = import.meta.env.VITE_AUTH_CLIENT_ID;
-const LearningShelf = () => {
+const LearningShelf = ({ bestBooksRef }) => {
     const { isAuthenticated } = useAuth0();
 
       if (!isAuthenticated) return (
@@ -92,7 +92,8 @@ render() {
     return (
         <Router>
             <Header />
-     <LearningShelf />
+    <LearningShelf bestBooksRef={this.bestBooksRef} />
+
    
 
    
