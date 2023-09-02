@@ -13,6 +13,8 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+const authDomain = import.meta.env.VITE_AUTH_DOMAIN;
+const authClientId = import.meta.env.VITE_AUTH_CLIENT_ID;
 const LearningShelf = () => {
     const { isAuthenticated } = useAuth0();
 
