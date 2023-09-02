@@ -25,12 +25,28 @@ const LearningShelf = ({ bestBooksRef }) => {
         </div>
     );
 
+  render() {
+    const location = useLocation();
+    const isBestBooksRoute = location.pathname === '/books';
+
     return (
+        <Router>
+            <Header />
+            {isBestBooksRoute && <LearningShelf />}
+            <Button variant="primary" type="button" onClick={this.toggleForm}>Add Book</Button>
+            <BookFormModal 
+                show={this.state.showForm} 
+                toggleForm={this.toggleForm} 
+                handleSubmit={this.handleSubmit}
+            />
             <Routes>
-                <Route path="/BookShelf" element={<BestBooks ref={this.bestBooksRef} />} />
-                <Route path="/About" element={<About />} />
+                <Route path="/books" element={<BestBooks ref={this.bestBooksRef} />} />
+                <Route path="/about" element={<About />} />
             </Routes>
+            <Footer />
+        </Router>
     );
+
 };
 class BookFormModal extends React.Component {
     render() {
