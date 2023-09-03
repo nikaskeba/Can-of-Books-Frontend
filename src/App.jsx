@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'; // Import Axios
 import Button from 'react-bootstrap/Button';
 import { useAuth0 } from '@auth0/auth0-react';
-
+import Profile from './Profile';
 import {
   BrowserRouter as Router,
   Routes,
@@ -25,28 +25,16 @@ const LearningShelf = ({ bestBooksRef }) => {
         </div>
     );
 
-  render() {
-    const location = useLocation();
-    const isBestBooksRoute = location.pathname === '/books';
-
     return (
-        <Router>
-            <Header />
-            {isBestBooksRoute && <LearningShelf />}
-            <Button variant="primary" type="button" onClick={this.toggleForm}>Add Book</Button>
-            <BookFormModal 
-                show={this.state.showForm} 
-                toggleForm={this.toggleForm} 
-                handleSubmit={this.handleSubmit}
-            />
             <Routes>
-                <Route path="/books" element={<BestBooks ref={this.bestBooksRef} />} />
-                <Route path="/about" element={<About />} />
-            </Routes>
-            <Footer />
-        </Router>
-    );
+                        <Route path="/" element={<div>Thanks for logging in!</div>} />
 
+<Route path="/books" element={<BestBooks ref={bestBooksRef} />} />
+
+                <Route path="/About" element={<About />} />
+                   <Route path="/Profile" element={<Profile />} />
+            </Routes>
+    );
 };
 class BookFormModal extends React.Component {
     render() {
