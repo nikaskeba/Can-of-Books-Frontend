@@ -8,6 +8,8 @@ import Button from 'react-bootstrap/Button';
 
 // ... inside the BestBooks component:
 
+// let API_SERVER='https://can-of-books-backend-0qwx.onrender.com';
+let API_SERVER='https://miniature-meme-r5pvrqq6pvxcvxw-3001.app.github.dev/';
 
 
 class EditBookModal extends React.Component {
@@ -61,7 +63,7 @@ handleEditSubmit = async (event, bookId) => {
     };
 
   try {
-        const response = await fetch(`https://can-of-books-backend-0qwx.onrender.com/books/${bookId}`, {
+        const response = await fetch(`${API_SERVER}/books/${bookId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -94,7 +96,7 @@ handleEditSubmit = async (event, bookId) => {
 
   getBooks = async () => {
     try {
-      const response = await fetch('https://can-of-books-backend-0qwx.onrender.com/books'); //add backend url
+      const response = await fetch(`${API_SERVER}/books`); //add backend url
       if (response.ok) {
         const data = await response.json();
         // console.log('extracting: ', data[0].title); //this
@@ -111,7 +113,7 @@ handleEditSubmit = async (event, bookId) => {
 
   handleDelete = async (bookId) => {
     try {
-        await fetch(`https://can-of-books-backend-0qwx.onrender.com/books/${bookId}`, {
+        await fetch(`${API_SERVER}/books/${bookId}`, {
             method: 'DELETE'
         });
         this.setState(prevState => ({
